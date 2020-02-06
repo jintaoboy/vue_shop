@@ -43,7 +43,7 @@
           <el-tag type="warning" size="mini" v-else>三级</el-tag>
         </template>
         <!-- 操作 -->
-        <template slot="opt" slot-scope="scope">
+        <template slot="opt" slot-scope="">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
           <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
         </template>
@@ -81,7 +81,7 @@
             :options="parentCateList"
             expand-trigger="hover"
             :props="cascaderProps"
-            @change="parentCateChanged" clearable change-on-select
+            @change="parentCateChanged" clearable
           ></el-cascader>
         </el-form-item>
       </el-form>
@@ -161,7 +161,8 @@ export default {
       cascaderProps: {
         value: 'cat_id',
         label: 'cat_name',
-        children: 'children'
+        children: 'children',
+        checkStrictly: true
       },
       // 选中的父级分类的Id数组
       selectedKeys: []
